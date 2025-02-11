@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python3 -m pytest'
+                sh 'python3 -m pytest --junit-xml=test-reports/results.xml'
             }
         }
         stage('Deliver') {

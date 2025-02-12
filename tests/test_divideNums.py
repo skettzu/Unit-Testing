@@ -1,8 +1,6 @@
 import unittest
 from sources.divideNums import DivideNums  # Assuming your class is named DivideNums
-from dataclasses import dataclass
 
-@dataclass  # Note: dataclass decorator is rarely needed for test classes
 class TestDivide(unittest.TestCase):
     def setUp(self):  # Correct method name is setUp, not setup_divide
         self.divideObj = DivideNums()  # Instantiate the class, not the module

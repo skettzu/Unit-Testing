@@ -13,7 +13,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python3 -m pytest --junit-xml=test-reports/results.xml'
+                sh 'python3 -m coverage run -m unittest discover -v -s tests
+                    python3 -m coverage xml -o test-reports/coverage.xml
+                    python3 -m coverage report'
             }
         }
         stage('Deliver') {

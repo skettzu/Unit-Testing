@@ -1,10 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
+        stage('Setup') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/skettzu/Unit-Testing.git'
+                sh 'python -m pip install -r requirements.txt'
             }
         }
         stage('Build') {

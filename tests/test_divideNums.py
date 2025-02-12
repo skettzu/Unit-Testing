@@ -1,5 +1,5 @@
 import unittest
-import divideNums
+import sources.divideNums as divideNums
 import dataclasses
 
 @dataclasses

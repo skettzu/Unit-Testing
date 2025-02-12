@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'your-repository-url'
+                    url: 'https://github.com/skettzu/Unit-Testing.git'
             }
         }
         stage('Build') {

@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'your-repository-url'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'python3 -m py_compile sources/*.py'

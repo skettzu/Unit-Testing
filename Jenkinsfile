@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'python3 -m pip install -r requirements.txt'
+                sh '''
+                    python3 -m pip install -r requirements.txt
+                    python3 -m pip install coverage
+                '''
             }
         }
         stage('Build') {
@@ -13,9 +16,16 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python3 -m coverage run -m unittest discover -v -s tests
+                sh '''
+                    python3 -m coverage run -m unittest discover -v -s tests
                     python3 -m coverage xml -o test-reports/coverage.xml
-                    python3 -m coverage report'
+                    python3 -m coverage report
+                '''
+            }
+            post {
+                always {
+                    junit 'test-reports/*.xml'
+                }
             }
         }
         stage('Deliver') {

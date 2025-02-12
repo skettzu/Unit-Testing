@@ -1,4 +1,4 @@
-class divideNums:
+class DivideNums:
     def divideTwoNums(num1: int, num2: int) -> float:
         if (type(num1) or type(num2)) is (str or list):
             raise TypeError
